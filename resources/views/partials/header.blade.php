@@ -1,4 +1,11 @@
 <header>
+    <div class="top-bar">
+        <ul>
+            <li>DC POWER VISA</li>
+            <li>ADDITIONAL DC SITES</li>
+        </ul>
+
+    </div>
     <div class="container container-header">
 
             <div class="logo-container"> 
@@ -22,7 +29,7 @@
 
             <div class="search"> 
                 <input type="search" name="search" id="search" placeholder="search" class="input-search">
-                <button class="button" type="submit">Q</button>
+                <button class="button" type="submit"><i class="fas fa-search"></i></button>
             </div>
       
     </div>

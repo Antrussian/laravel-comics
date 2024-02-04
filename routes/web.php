@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+    $items = config('db.item');
+    return view('pages.home', ['products' => $items]);
 });
 
-Route::get('/products', function () {
-    return view('pages.products');
-});
+
 
 
 
