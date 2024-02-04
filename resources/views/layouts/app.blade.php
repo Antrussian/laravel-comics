@@ -7,8 +7,17 @@
     <title>Document</title>
 
     @vite('resources/js/app.js')
+    @yield('head-content')
 </head>
 <body>
-    
+    @include('partials.header')
+
+    <main>
+        @yield('main-content')
+    </main>
+
+    @include('partials.footer')
+
+    @yield('script-content')
 </body>
 </html>
