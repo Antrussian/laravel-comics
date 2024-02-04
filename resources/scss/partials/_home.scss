@@ -30,3 +30,50 @@
    color: white;
    font-size: 15px;
 }
+
+.load-more{
+   background-color: blue;
+   color: white;
+   padding: 10px;
+   width: 200px;
+}
+
+.cta-home{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   padding: 20px;
+}
+
+
+.info{
+   display: flex;
+   flex-direction: row;
+   background-color: blue;
+   padding: 20px;
+   color: white;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+}
+
+.info ul > li {
+   color: white;
+   list-style: none;
+   justify-content: center;
+}
+
+
+.icon{
+   width: 50px;
+   height: 50px;
+   padding: 5px;
+}
+
+.icon-ul{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 90%;
+   
+}

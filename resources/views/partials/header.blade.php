@@ -31,6 +31,7 @@
                 <input type="search" name="search" id="search" placeholder="search" class="input-search">
                 <button class="button" type="submit"><i class="fas fa-search"></i></button>
             </div>
+            
       
     </div>
 </header>
