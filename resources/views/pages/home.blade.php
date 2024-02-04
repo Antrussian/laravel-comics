@@ -6,21 +6,21 @@
     
 </div>
 
-<section class="products">
+<section class="products bg-dark">
     <div class="container">
         <div class="row">
-            <div class="row row-cols-1">
+            <div class="row row-cols-12">
             
                 @foreach ($products as $product )
                         
                
-                    <div class="col">
-                        <div class="card">
-                            <img src="" alt="">
-                                <div class="card-body">
-                                    <h3>
+                    <div class="col p-1">
+                        <div class="card bg-dark">
+                            <img class="thumb" src="{{ $product['thumb']}}" alt="">
+                                <div class="card-body bg-dark p-2 ">
+                                    <h5 class="title">
                                         {{ $product['title'] }}
-                                    </h3>
+                                    </h5>
                                 </div>
                         </div>
                     </div>
