@@ -14,12 +14,17 @@ use App\Http\Controllers\Guest\FumettiController as GuestFumettiController;
 |
 */
 
+Route::get('/comics/create', [GuestFumettiController::class, 'create'])->name('guest.comics.create');
 
+Route::post('/comics', [GuestFumettiController::class, 'store'])->name('guest.comics.store');
 
 Route::get('/comics', [GuestFumettiController::class, 'index'])->name('guest.comics.index');
+
 Route::get('comics/{comic}', [GuestFumettiController::class, 'show'])->name('guest.comics.show');
 
 Route::get('/', function () {
     $items = config('db.item');
     return view('pages.home', ['products' => $items]);
 });
+
+

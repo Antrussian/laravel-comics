@@ -3,68 +3,59 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comic; // Corretto il namespace qui
+use App\Models\Comic;
 use Illuminate\Http\Request;
 
 class FumettiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $comics = Comic::all(); 
         return view('comics.index', compact('comics'));
     }
-    
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Creazione di un nuovo fumetto con i dati ricevuti dal formulario
+        $comic = new Comic();
+        $comic->title = $request->title;
+        $comic->description = $request->description;
+        $comic->thumb = $request->thumb; 
+        $comic->price = $request->price;
+        $comic->series = $request->series;
+        $comic->sale_date = $request->sale_date;
+        $comic->type = $request->type;
+        $comic->artists = json_encode($request->artists);
+        $comic->writers = json_encode($request->writers);
+        $comic->save();
+
+        // Reindirizzamento alla pagina index dopo aver aggiunto il fumetto
+        return redirect()->route('guest.comics.index')->with('success', 'Fumetto aggiunto con successo!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $comic = Comic::findOrFail($id);
         return view('comics.show', compact('comic'));
-  
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        // Implementa la logica per modificare un fumetto
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        // Implementa la logica per aggiornare un fumetto
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        // Implementa la logica per eliminare un fumetto
     }
 }
