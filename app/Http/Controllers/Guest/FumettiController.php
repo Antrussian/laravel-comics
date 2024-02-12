@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comic; // Corretto il namespace qui
 use Illuminate\Http\Request;
 
 class FumettiController extends Controller
@@ -12,8 +13,10 @@ class FumettiController extends Controller
      */
     public function index()
     {
-        //
+        $comics = Comic::all(); 
+        return view('comics.index', compact('comics'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +39,9 @@ class FumettiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        return view('comics.show', compact('comic'));
+  
     }
 
     /**
