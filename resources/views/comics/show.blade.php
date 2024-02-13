@@ -22,15 +22,16 @@
                     </div>
                 </div>
 
-                <div class="cta-home">
-                    <button class="load-more">
-                        Acquista Ora
-                    </button>
+                <div class="cta-home d-flex justify-content-start mt-3">
+                    <a href="{{ route('guest.comics.index') }}" class="btn btn-secondary me-3">Vedi tutti</a>
+                    <button class="btn btn-primary">Acquista Ora</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 
 <div class="info">

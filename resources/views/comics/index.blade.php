@@ -2,27 +2,37 @@
 
 @section('main-content')
 
-<div class="hero-container">
-
-</div>
+<div class="hero-container"></div>
 
 <section class="products bg-dark">
     <div class="cta-home">
+        <!-- Link per aggiungere un nuovo fumetto -->
         <a href="{{ route('guest.comics.create') }}" class="btn btn-success p-3 m-2 text-white">Aggiungi Nuovo</a>
     </div>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($comics as $comic)
-            <div class="col p-1">
+            <div class="col-md-4">
                 <div class="card bg-dark">
-                    <a href="{{ route('guest.comics.show', $comic->id) }}" class="text-white"> <!-- Aggiunto la classe text-white -->
+                    <!-- Link per visualizzare i dettagli del fumetto -->
+                    <a href="{{ route('guest.comics.show', $comic->id) }}" class="text-white">
+                        <!-- Immagine del fumetto -->
                         <img class="thumb" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
                         <div class="card-body bg-dark p-2">
-                            <h5 class="title text-white">{{ $comic->title }}</h5> <!-- Aggiunto text-white -->
-                            <p class="price text-white">{{ $comic->price }}</p> <!-- Aggiunto text-white -->
-                            <p class="series text-white">{{ $comic->series }}</p> <!-- Aggiunto text-white -->
+                            <!-- Titolo del fumetto -->
+                            <h5 class="title text-white">{{ $comic->title }}</h5>
+                            <!-- Prezzo del fumetto -->
+                            <p class="price text-white">{{ $comic->price }}</p>
+                            <!-- Serie del fumetto -->
+                            <p class="series text-white">{{ $comic->series }}</p>
                         </div>
-                    </a> 
+                    </a>
+                    <div class="card-footer bg-dark d-flex justify-content-between">
+                        <!-- Bottone per modificare il fumetto -->
+                        <a href="{{ route('guest.comics.edit', $comic->id) }}" class="btn btn-warning me-2">Modifica</a>
+                        <!-- Bottone per visualizzare i dettagli del fumetto -->
+                        <a href="{{ route('guest.comics.show', $comic->id) }}" class="btn btn-primary">Vedi</a>
+                    </div>
                 </div>
             </div>
             @endforeach

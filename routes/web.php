@@ -14,17 +14,20 @@ use App\Http\Controllers\Guest\FumettiController as GuestFumettiController;
 |
 */
 
+// Route per visualizzare il form per aggiungere un nuovo fumetto
 Route::get('/comics/create', [GuestFumettiController::class, 'create'])->name('guest.comics.create');
 
+// Route per salvare un nuovo fumetto nel database
 Route::post('/comics', [GuestFumettiController::class, 'store'])->name('guest.comics.store');
 
+// Route per visualizzare tutti i fumetti
 Route::get('/comics', [GuestFumettiController::class, 'index'])->name('guest.comics.index');
 
+// Route per visualizzare i dettagli di un fumetto
 Route::get('comics/{comic}', [GuestFumettiController::class, 'show'])->name('guest.comics.show');
 
-Route::get('/', function () {
-    $items = config('db.item');
-    return view('pages.home', ['products' => $items]);
-});
+// Route per visualizzare il form per modificare un fumetto
+Route::get('/comics/{comic}/edit', [GuestFumettiController::class, 'edit'])->name('guest.comics.edit');
 
-
+// Route per salvare le modifiche di un fumetto nel database
+Route::put('/comics/{comic}', [GuestFumettiController::class, 'update'])->name('guest.comics.update');
